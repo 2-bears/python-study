@@ -1,0 +1,67 @@
+simple note to use git on windows:
+
+create a new local repository:
+    create a new folder, and execute
+    $ git init
+
+local repository make up of 3 trees which maintained by git. the first is your working directory, it refers to real files; the second is index, like a buffer area, it temporarily save you changes; the last is head, it point to the result of your last commit.
+
+working dir add to index, index commit to head.
+
+add files to repository:
+    $git add $filename
+    $git add -A  
+
+when first commit, you should tell git who you are, run the following command:
+    $git config --global user.email mouhua.hu@yahoo.com
+    $git config --global user.name 2-bears
+    $git config --global core.editor vim
+    $git config --list
+    $git config core.editor
+ #remember password:   
+    $ git config credential.helper store 
+    
+commit files to head:
+    $git commit -m "remark"
+
+push changes to git server:
+you should create a repository on git server, and then run command:
+    $git remote add python-study https://github.com/2-bears/python-study
+    $git push python-study master
+
+pull git server to local:
+    $git pull python-study/master master  (pull will merge)
+    $git fetch python-study/master master
+
+getting help
+    $git help cmd
+    $man cmd
+    $git --help    -- this will show common commands of git
+
+create a branch:
+    $git branch branchname
+    $git checkout branchname        --switch head pointer to the branch
+
+
+show log:
+    $git log
+    $git log --oneline --decorate  --show history versions, snapshots, branches, and branches pointer to
+
+about branch:
+    $git push mynote branchname
+    $git checkout -track mynote/b1229
+
+show status:
+    $git remote -v
+    $git branch --help
+    $git status
+    $git show
+
+Push an existsing repository from the command line:
+    git remote add origin https://github.com/2-bears/{projectname}
+    git push -u origin master
+
+Reset to head, when add wrong file:
+    git reset HEAD
+
+
